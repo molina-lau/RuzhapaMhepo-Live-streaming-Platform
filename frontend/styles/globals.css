@@ -1,0 +1,165 @@
+@import "tailwindcss" prefix(tw);
+/* Style for the loader element */
+.loader {
+  border: 8px solid #f3f3f3; /* Light grey border */
+  border-top: 8px solid #3498db; /* Blue border for the spinning part */
+  border-radius: 50%; /* Makes the element round */
+  width: 60px; /* Width of the loader */
+  height: 60px; /* Height of the loader */
+  animation: spin 2s linear infinite; /* Apply the spin animation */
+}
+
+/* Define the spin animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  } /* Start with no rotation */
+  100% {
+    transform: rotate(360deg);
+  } /* End with a full 360-degree rotation */
+}
+
+.sidebar {
+  /* Remove default Bootstrap background and padding if needed */
+  background-color: #fff;
+  padding: 0; /* Custom padding will be applied to nav-links and header */
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  min-height: 100vh; /* Make sidebar at least full viewport height */
+  position: fixed; /* Fix sidebar position */
+  top: 0;
+  left: 0;
+  width: 250px; /* Define a fixed width for the sidebar */
+  overflow-y: auto; /* Add scrolling for long content */
+  z-index: 1000; /* Ensure sidebar is above other content */
+}
+
+.sidebar-header {
+  padding: 20px 24px; /* Padding for the header */
+  font-size: 1.25rem; /* Larger font size for header */
+  font-weight: 500;
+  color: #202124; /* Darker color for header text */
+  border-bottom: 1px solid #e0e0e0; /* Subtle separator */
+  margin-bottom: 10px; /* Space below the header */
+}
+
+.sidebar .nav-link {
+  color: #3c4043; /* Google's standard text color */
+  padding: 12px 24px; /* Custom padding */
+  font-size: 1rem; /* Standard font size */
+  font-weight: 500; /* Medium font weight */
+  transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transitions */
+  border-radius: 0 25px 25px 0; /* Rounded right corners */
+  margin-right: 12px; /* Space on the right */
+}
+
+.sidebar .nav-link i {
+  margin-right: 16px; /* Space between icon and text */
+  color: #5f6368; /* Icon color */
+  width: 24px; /* Fixed width for icons */
+  text-align: center;
+}
+
+.sidebar .nav-link.active {
+  color: #1a73e8; /* Google's blue for active items */
+  background-color: #e8f0fe; /* Light blue background for active items */
+  font-weight: 600; /* Slightly bolder for active */
+}
+
+.sidebar .nav-link.active i {
+  color: #1a73e8; /* Blue icon for active items */
+}
+
+.sidebar .nav-link:hover:not(.active) {
+  background-color: #f1f3f4; /* Light gray hover background */
+  color: #202124; /* Darker text on hover */
+}
+
+.sidebar .nav-link:hover:not(.active) i {
+  color: #202124; /* Darker icon on hover */
+}
+
+/* Adjust main content area to not be hidden by the fixed sidebar */
+.main-content {
+  margin-left: 250px; /* Match sidebar width */
+  padding: 20px; /* Add some padding to the content area */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px; /* Collapse sidebar on smaller screens */
+  }
+
+  .sidebar-header {
+    padding: 20px 0; /* Adjust padding for collapsed state */
+    text-align: center;
+    font-size: 1rem; /* Smaller font size */
+    margin-bottom: 5px;
+    border-bottom: none; /* Remove border in collapsed state */
+  }
+
+  .sidebar .nav-link {
+    padding: 12px 0; /* Adjust padding for collapsed state */
+    text-align: center; /* Center text/icons */
+    margin-right: 0;
+    border-radius: 50%; /* Make items circular in collapsed state */
+    width: 48px; /* Set a fixed width/height for circular items */
+    height: 48px;
+    display: inline-flex; /* Use flex to center icon/text */
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto; /* Center the circular items */
+  }
+
+  .sidebar .nav-link span {
+    display: none; /* Hide text in collapsed state */
+  }
+
+  .sidebar .nav-link i {
+    margin-right: 0; /* Remove margin next to icon */
+  }
+
+  .main-content {
+    margin-left: 70px; /* Adjust main content margin */
+  }
+}
+
+@media (max-width: 576px) {
+  /* Further adjustments for very small screens if needed */
+  .sidebar {
+    width: 60px;
+  }
+  .main-content {
+    margin-left: 60px;
+  }
+  .sidebar .nav-link {
+    width: 40px;
+    height: 40px;
+  }
+  .sidebar-header {
+    font-size: 0.9rem;
+  }
+}
+
+.flex-item {
+  padding: 15px;
+  margin: 5px; /* Add margin for spacing */
+  border-radius: 5px;
+  text-align: center;
+}
+/* Add a border to the container to see the flex behavior */
+.flex-container {
+  border: 2px dashed #6c757d;
+  padding: 10px;
+}
+@keyframes scale {
+  0% {
+    scale: 1;
+  } /* Start with no rotation */
+  100% {
+    scale: 1.8;
+  } /* End with a full 360-degree rotation */
+}
+.poiner {
+  cursor: pointer;
+}
